@@ -25,11 +25,12 @@ When ready just go to <http://localhost:8080> and follow the instructions.
 
 Some add-ons are already installed in the Meeds image but you can install other one or remove some of the pre-installed one :
 
-| VARIABLE               | MANDATORY | DEFAULT VALUE | DESCRIPTION                                                                               |
-|------------------------|-----------|---------------|-------------------------------------------------------------------------------------------|
-| MEEDS_ADDONS_LIST        | NO        | -             | commas separated list of add-ons to install (ex: meeds-wallet,meeds-perk-store:2.0.x-SNAPSHOT)    |
-| MEEDS_ADDONS_REMOVE_LIST | NO        | -             | commas separated list of add-ons to uninstall (ex: meeds-es-embedded) |
-| MEEDS_ADDONS_CATALOG_URL | NO        | -             | The url of a valid Meeds addons Catalog                                                            |
+| VARIABLE               | MANDATORY | DEFAULT VALUE        | DESCRIPTION                                                                               |
+|------------------------|-----------|----------------------|-------------------------------------------------------------------------------------------|
+| MEEDS_ADDONS_LIST        | NO        | -                    | commas separated list of add-ons to install (ex: meeds-wallet,meeds-perk-store:2.0.x-SNAPSHOT)    |
+| MEEDS_ADDONS_REMOVE_LIST | NO        | -                    | commas separated list of add-ons to uninstall (ex: meeds-es-embedded) |
+| MEEDS_ADDONS_CATALOG_URL | NO        | -                    | The url of a valid Meeds addons Catalog                                                            |
+| MEEDS_ADDONS_FLAGS       | NO        | --force --batch-mode | Flags to be passed to the addon installation process                                       |
 
 ### JVM
 

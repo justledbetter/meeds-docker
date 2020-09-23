@@ -408,11 +408,12 @@ else
   if [ -z "${MEEDS_ADDONS_LIST:-}" ]; then
     echo "# no add-on to install from MEEDS_ADDONS_LIST environment variable."
   else
+    _flags=${MEEDS_ADDONS_FLAGS:"--force --batch-mode"}
     echo "# installing add-ons from MEEDS_ADDONS_LIST environment variable:"
     echo ${MEEDS_ADDONS_LIST} | tr ',' '\n' | while read _addon ; do
       if [ -n "${_addon}" ]; then
         # Install addon
-        ${MEEDS_APP_DIR}/addon install ${_ADDON_MGR_OPTIONS:-} ${_ADDON_MGR_OPTION_CATALOG:-} ${_addon} --force --batch-mode
+        ${MEEDS_APP_DIR}/addon install ${_ADDON_MGR_OPTIONS:-} ${_ADDON_MGR_OPTION_CATALOG:-} ${_addon} ${_flags}
         if [ $? != 0 ]; then
           echo "[ERROR] Problem during add-on [${_addon}] install."
           exit 1
