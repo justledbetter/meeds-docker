@@ -136,6 +136,8 @@ MEEDS_ES_URL="${MEEDS_ES_SCHEME}://${MEEDS_ES_HOST}:${MEEDS_ES_PORT}"
 [ -z "${MEEDS_REWARDS_WALLET_NETWORK_ENDPOINT_WEBSOCKET}" ] && MEEDS_REWARDS_WALLET_NETWORK_ENDPOINT_WEBSOCKET="wss://mainnet.infura.io/ws/v3/a1ac85aea9ce4be88e9e87dad7c01d40"
 [ -z "${MEEDS_REWARDS_WALLET_TOKEN_ADDRESS}" ] && MEEDS_REWARDS_WALLET_TOKEN_ADDRESS="0xc76987d43b77c45d51653b6eb110b9174acce8fb"
 
+[ -z "${MEEDS_ADDONS_FLAGS}" ] && MEEDS_ADDONS_FLAGS="--force --batch-mode"
+
 set -u		# REACTIVATE unbound variable check
 
 # -----------------------------------------------------------------------------
@@ -408,7 +410,7 @@ else
   if [ -z "${MEEDS_ADDONS_LIST:-}" ]; then
     echo "# no add-on to install from MEEDS_ADDONS_LIST environment variable."
   else
-    _flags=${MEEDS_ADDONS_FLAGS:"--force --batch-mode"}
+    _flags=${MEEDS_ADDONS_FLAGS:-}
     echo "# installing add-ons from MEEDS_ADDONS_LIST environment variable:"
     echo ${MEEDS_ADDONS_LIST} | tr ',' '\n' | while read _addon ; do
       if [ -n "${_addon}" ]; then
